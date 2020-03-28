@@ -17,3 +17,29 @@ abc00000
 12345678
 90000000
 '''
+
+import sys
+
+outs = list()
+
+def part(in_str):
+    global outs
+    str_len = len(in_str)
+    num = int(str_len / 8)
+    remain_num = str_len % 8
+    if num > 0:
+        for i in range(1,num+1): #mark a mistake:range(num+1) will conut i=0 into case the append an empty str'' to outs
+            outs.append(str(in_str[8*(i-1):8*i]))
+            #print(outs)
+    if remain_num != 0:
+        make_up_str = str(in_str[8*num:]) + '0'*(8-remain_num)
+        outs.append(make_up_str)
+        #print(outs)
+        
+for i in range(2):
+    input_str = sys.stdin.readline().strip()
+    if input_str != '':
+        part(input_str)
+#print(outs)
+for o in outs:
+    print(o)
