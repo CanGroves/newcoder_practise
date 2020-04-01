@@ -30,3 +30,11 @@ def ten_to_two(num_ten):
     return count
 
 print(ten_to_two(int(input_num)))
+
+
+'''
+ref using bin():
+
+num = int(input())
+print(bin(num).count('1'))
+'''
